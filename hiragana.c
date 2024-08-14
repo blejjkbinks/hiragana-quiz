@@ -298,14 +298,15 @@ int	quizz(int question_count, int hint_wallet, int sugg_wallet)
 	int	win = 0, fail = 0;
 
 	//test_random(5000);
+	printf("best if you resize your terminal to be 6 lines tall, zoom in\n");
 	printf("enter \"!!\" for a suggestion (4 possibilities, 1 correct)\n");
 	printf("enter \"??\" for a hint (first letter revealed)	\n");
-	printf("going for %d questions, with %d hints and %d suggestions good luck\n", question_count, hint_wallet, sugg_wallet);
+	printf("going for %d questions, with %d hints and %d suggestions good luck\n\n", question_count, hint_wallet, sugg_wallet);
 	while(win + fail < question_count)
 	{
 		kana_q = random_kana();
 		str_kana_q = kana_to_romaji(kana_q);
-		printf("do you know this letter??:)!!\n\n%lc\n\n", kana_q);
+		printf("do you know this letter??:)!!\n\n%lc\n\n>> ", kana_q);
 		scanf("%s", input);
 		if (strcmp(input, "!!") * strcmp(input, "??") == 0)
 		{
