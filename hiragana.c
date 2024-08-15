@@ -306,15 +306,15 @@ int	quizz(int question_count, int hint_wallet, int sugg_wallet)
 	{
 		kana_q = random_kana();
 		str_kana_q = kana_to_romaji(kana_q);
-		printf("do you know this letter??:)!!\n\n%lc\n\n>> ", kana_q);
-		scanf("%s", input);
+		printf("do you know this letter??:)!!\n\n%lc\n\n", kana_q);
+		scanf(">> %s", input);
 		if (strcmp(input, "!!") * strcmp(input, "??") == 0)
 		{
 			if (*input == '!')
 				print_sugg(kana_q, 4, --sugg_wallet);
 			else
 				print_hint(kana_q, --hint_wallet);
-			scanf("%s", input);
+			scanf(">> %s", input);
 		}
 		kana_a = romaji_to_kana(input);
 		if (kana_a)
