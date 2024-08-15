@@ -244,7 +244,7 @@ static void	print_sugg(wchar_t kana, int count, int wallet)
 {
 	if (!(wallet >= 0))
 	{
-		printf("no suggestions left :(\n");
+		printf("no suggestions left :(\n>> ");
 		return ;
 	}
 	wchar_t	*suggestions = (wchar_t *)calloc(count, sizeof(wchar_t));
@@ -267,7 +267,7 @@ static void	print_sugg(wchar_t kana, int count, int wallet)
 		printf(" %2s", str);
 		free(str);
 	}
-	printf(" , %d suggestions left\n", wallet);
+	printf(" , %d suggestions left\n>> ", wallet);
 	free(suggestions);
 }
 		
@@ -275,7 +275,7 @@ static void	print_hint(wchar_t kana, int wallet)
 {
 	if (!(wallet >= 0))
 	{
-		printf("no hints left :(\n");
+		printf("no hints left :(\n>> ");
 		return ;
 	}
 	char	*str = kana_to_romaji(kana);
@@ -284,7 +284,7 @@ static void	print_hint(wchar_t kana, int wallet)
 		printf("its just one letter...,");
 	else
 		printf("the first letter is: %c ,", str[0]);
-	printf(" %d hints left\n", wallet);
+	printf(" %d hints left\n>> ", wallet);
 	free(str);
 }
 
@@ -306,15 +306,15 @@ int	quizz(int question_count, int hint_wallet, int sugg_wallet)
 	{
 		kana_q = random_kana();
 		str_kana_q = kana_to_romaji(kana_q);
-		printf("do you know this letter??:)!!\n\n%lc\n\n", kana_q);
-		scanf(">> %s", input);
+		printf("do you know this letter??:)!!\n\n%lc\n\n>> ", kana_q);
+		scanf("%s", input);
 		if (strcmp(input, "!!") * strcmp(input, "??") == 0)
 		{
 			if (*input == '!')
 				print_sugg(kana_q, 4, --sugg_wallet);
 			else
 				print_hint(kana_q, --hint_wallet);
-			scanf(">> %s", input);
+			scanf("%s", input);
 		}
 		kana_a = romaji_to_kana(input);
 		if (kana_a)
