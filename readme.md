@@ -45,7 +45,7 @@ do you know this letter??:)!!
 
 >> ??
 the first letter is: r , 0 hints left
-ra
+>> ra
 ら
 wrong:( it was  re,  れ     3/  2 ( 60%)
 <3!<3!<3 !!congrats!! <3!<3!<3
